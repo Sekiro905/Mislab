@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+
+<body>
+    <script>
+        /* 参数：obj:要执行动画的对象 attr:要执行动画的样式 target:执行动画的目标位置 speed: 移动的速度 callback:在动画执行完以后执行的函数*/
+        function move(obj, attr, target, speed, callback) {
+            // 关闭上一个定时器
+            clearInterval(timer);
+            // 获取元素原来的属性值
+            let current = parseInt(getStyle(obj.attr));
+            // 判断速度的正负值
+            if (current > target) {
+                speed = -speed;
+            }
+            // 开启一个定时器，用来执行动画效果
+            obj.timer = setInterval(() => {
+                // 获取元素原来的属性值
+                let oldValue = parseInt(getStyle(obj.attr));
+                // 在旧值的基础上增加
+                let newValue = oldValue + speed;
+                if ((speed < 0 && newValue < target) || (speed > 0 && newValue > target)) {
+                    newValue = target;
+                }
+                obj.style.left = newValue + 'px';
+                if (newValue == target) {
+                    clearInterval(obj.timer);
+                    callback && callback();
+                }
+            }, 30)
+        }
+
+        function getStyle(obj, name) {
+            if (window.getComputedStyle) {
+                return getComputedStyle(obj, null)[name];
+            }
+        }
+    </script>
+</body>
+
+</html>

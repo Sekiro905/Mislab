@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-image: url(../assets/80a3218be76f4173f314cbe922a53194.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+body .iconfont {
+  font-size: 40px;
+  cursor: pointer;
+}
+body #main .top-nav {
+  width: 100vw;
+  height: 11vh;
+}
+body #main .top-nav .locate-outer {
+  text-align: center;
+}
+body #main .mid-content {
+  width: 100vw;
+  height: 75vh;
+  display: flex;
+  position: relative;
+}
+body #main .mid-content .getback {
+  display: none;
+}
+body #main .mid-content .getback:hover {
+  color: pink;
+  transition: 0.5s;
+}
+body #main .mid-content .search {
+  width: 100vw;
+  height: 6vh;
+  align-self: center;
+  position: relative;
+}
+body #main .mid-content .search .search-box {
+  width: 70vw;
+  height: 6vh;
+  margin: 0 auto;
+  position: relative;
+}
+body #main .mid-content .search .search-box .city {
+  width: 70vw;
+  height: 6vh;
+  border: 2px solid gray;
+  border-radius: 10px;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+body #main .mid-content .search .search-box .search-botton {
+  cursor: pointer;
+  background-color: transparent;
+  position: absolute;
+  right: -62px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: lawngreen;
+}
+body #main .mid-content .search .history {
+  width: 70vw;
+  background-color: #fff;
+  position: absolute;
+  top: 6.5vh;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 4px;
+  display: none;
+}
+body #main .mid-content .search .history ul {
+  list-style: none;
+  font-size: 14px;
+}
+body #main .mid-content .search .history ul li {
+  background-color: white;
+  position: relative;
+  cursor: pointer;
+}
+body #main .mid-content .search .history ul span {
+  background-color: #fff;
+}
+body #main .mid-content .search .history ul .iconfont {
+  font-size: 14px;
+}
+body #main .mid-content .future {
+  width: 90vw;
+  height: 30vh;
+  color: lightsalmon;
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+body #main .mid-content .future .futureWeather {
+  display: flex;
+  justify-content: space-between;
+}
+body #main .mid-content .future .futureWeather .tem {
+  display: flex;
+}
+body #main .mid-content .today {
+  width: 60vw;
+  height: 30vh;
+  display: none;
+  color: yellow;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+body #main .mid-content .today .tempNow {
+  font-size: 60px;
+  margin-bottom: 15px;
+}
+body #main .mid-content .today .weatNow {
+  font-size: 30px;
+  margin: 15px;
+}
+body #main .mid-content .today .windDir {
+  margin-bottom: 50px;
+}
+body #main .mid-content .index {
+  display: none;
+  flex-wrap: wrap;
+  color: goldenrod;
+  text-align: center;
+  width: 98vw;
+  height: 52vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+body #main .mid-content .index .life {
+  width: 48vw;
+  height: 26vh;
+}
+body #main .bot-options {
+  width: 100vw;
+  height: 14vh;
+  display: flex;
+  justify-content: space-between;
+}
+body #main .bot-options .option {
+  text-align: center;
+  cursor: pointer;
+  color: aquamarine;
+}
+body #main .bot-options .option:hover {
+  color: orange;
+  transition: 0.4s;
+}
+body #main .bot-options .option-on {
+  color: orange;
+  text-align: center;
+  cursor: pointer;
+}

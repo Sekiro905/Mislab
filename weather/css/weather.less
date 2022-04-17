@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    
+}
+
+@t-a: text-align;
+@j-c: justify-content;
+@b-r: border-radius;
+
+.outerBox(@w, @h) {
+    width: @w;
+    height: @h;
+}
+
+.position(@p, @top, @left, @translateX, @translateY) {
+    position: @p;
+    top: @top;
+    left: @left;
+    transform: translate(@translateX, @translateY);
+}
+
+body {
+    background-image: url(../assets/80a3218be76f4173f314cbe922a53194.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    .iconfont {
+        font-size: 40px;
+        cursor: pointer;
+    }
+
+    #main {
+        .top-nav {
+            .outerBox(100vw, 11vh);
+
+            .locate-outer {
+                @{t-a}: center;
+               
+            }
+        }
+
+        .mid-content {
+            .outerBox(100vw, 75vh);
+            display: flex;
+            position: relative;
+            .getback{
+                display: none;
+                &:hover{
+                    color: pink;
+                    transition: .5s
+                }
+            }
+
+            .search {
+                .outerBox(100vw, 6vh);
+                align-self: center;
+                position: relative;
+                .search-box {
+                    .outerBox(70vw, 6vh);
+                    margin: 0 auto;
+                    position: relative;
+
+                    .city {
+                        .outerBox(70vw, 6vh);
+                        border: 2px solid gray;
+                        @{b-r}: 10px;
+                        background-color: #fff;
+                        .position(absolute, 50%, 50%, -50%, -50%);
+                    }
+
+                    .search-botton {
+                        cursor: pointer;
+                        background-color: transparent;
+                        position: absolute;
+                        right: -62px;
+                        top: 50%;
+                        transform: translate(-50%,-50%);
+                        color: lawngreen;
+                    }
+                    
+                }
+                .history{
+                    width: 70vw;
+                    background-color: #fff;
+                    .position(absolute, 6.5vh, 50%, -50%, 0);
+                    @{b-r}:4px;
+                    display: none;
+                    ul{
+                        list-style: none;
+                        font-size: 14px;
+                        li{
+                            background-color: white;
+                            position: relative;
+                            cursor: pointer;
+                        }
+                        span{
+                            background-color: #fff;
+                    
+                        }
+                        .iconfont{
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+            .future{
+                .outerBox(90vw, 30vh);
+                color: lightsalmon;
+                display: none;
+                .position(absolute, 50%, 50%, -50%, -50%);
+                .futureWeather{
+                    display: flex;
+                    justify-content: space-between;
+                    
+                    .tem{
+                        display: flex;
+                    }
+                }
+            }
+            .today{
+                .outerBox(60vw, 30vh);
+                display: none;
+                color: yellow;
+                @{t-a}: center;
+                .position(absolute, 50%, 50%, -50%, -50%);
+                .tempNow{
+                    font-size: 60px;
+                    margin-bottom: 15px;
+                }
+                .weatNow{
+                    font-size: 30px;
+                    margin: 15px;
+                }
+                .windDir{
+                    margin-bottom: 50px;
+                }
+                
+            }
+            .index{
+                display: none;
+                flex-wrap: wrap;
+                color: goldenrod;
+                @{t-a}: center;
+                .outerBox(98vw, 52vh);
+                .position(absolute, 50%, 50%, -50%, -50%);
+                .life{
+                    .outerBox(48vw, 26vh);
+
+                }
+            }
+        }
+
+        .bot-options {
+            .outerBox(100vw, 14vh);
+            display: flex;
+            @{j-c}: space-between;
+
+            .option {
+                @{t-a}: center;
+                cursor: pointer;
+                color: aquamarine;
+                &:hover{
+                    color: orange;
+                    transition: .4s;
+                }
+            }
+            .option-on{
+                color: orange;
+                @{t-a}: center;
+                cursor: pointer;
+            }
+        }
+    }
+}

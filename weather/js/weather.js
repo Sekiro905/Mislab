@@ -197,7 +197,3 @@ ib.onclick = function() {
     tb.className = 'option';
     this.className = 'option-on';
 }
-
-function blurfunction() {
-    history.style.display = '';
-}

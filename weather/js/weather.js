@@ -25,13 +25,14 @@ let ib = document.getElementById('index-botton');
 let hlist = document.querySelector('.hlist');
 let history = document.querySelector('.history');
 let inputcity = document.querySelector('.city');
-
-
+let mid = document.querySelector('.mid-content');
+let cArray = [];
 sb.onclick = () => {
     if (inputcity.value == '') {
         alert('亲，还未输入城市名哦~~~');
     } else {
         let city = document.querySelector('.city').value;
+        inputcity.value = '';
         const promise = new Promise((resolve, reject) => {
             AJAX(`https://geoapi.qweather.com/v2/city/lookup?location=${city}&key=6d1942b0a3c64d498f33221c6fff3280&range=cn&number=1`, (res) => {
                 console.log(res);
@@ -110,33 +111,39 @@ sb.onclick = () => {
             }
         }
         weatherRequest();
-        let mid = document.querySelector('.mid-content');
-        let li = document.createElement('li');
-        let cityspan = document.createElement('span');
-        let removespan = document.createElement('span');
-        cityspan.innerText = city;
-        li.className = 'historycity';
-        removespan.className = 'iconfont remove';
-        let cityli = document.getElementsByClassName('historycity');
-        let remove = document.getElementsByClassName('remove');
-        removespan.innerHTML = '&#xe609;';
-        cityspan.style.cursor = 'pointer';
-        removespan.style.position = 'absolute';
-        removespan.style.right = '2.5vw';
-        removespan.style.top = '3px';
-        li.appendChild(cityspan);
-        li.appendChild(removespan);
-        hlist.appendChild(li);
-        history.style.display = '';
+        let boolean = cArray.includes(city);
+        if (boolean == false) {
+            cArray.push(city);
+            let li = document.createElement('li');
+            let cityspan = document.createElement('span');
+            let removespan = document.createElement('span');
+            cityspan.innerText = city;
+            li.className = 'historycity';
+            removespan.className = 'iconfont remove';
+            removespan.innerHTML = '&#xe609;';
+            cityspan.style.cursor = 'pointer';
+            removespan.style.position = 'absolute';
+            removespan.style.right = '2.5vw';
+            removespan.style.top = '3px';
+            li.appendChild(cityspan);
+            li.appendChild(removespan);
+            hlist.appendChild(li);
+        }
         inputcity.onclick = () => {
+            let cityli = document.getElementsByClassName('historycity');
+            let remove = document.getElementsByClassName('remove');
             history.style.display = 'block';
             for (let i = 0; i < cityli.length; i++) {
-                cityli[i].onclick = function(event) {
+                cityli[i].onclick = function() {
                     inputcity.value = this.firstChild.innerText;
-                    event.stopPropagation();
                 }
                 remove[i].addEventListener('click', function(event) {
                     let a = this.parentNode;
+                    cArray.forEach(function(value, index, cArray) {
+                        if (value == a.firstChild.innerText) {
+                            cArray.splice(index, 1);
+                        }
+                    })
                     hlist.removeChild(a);
                     event.stopPropagation();
                 }, false);
@@ -148,7 +155,6 @@ sb.onclick = () => {
                 }
             }
         }
-
     }
 }
 getback.onclick = () => {
@@ -159,7 +165,6 @@ getback.onclick = () => {
     tb.className = 'option';
     ib.className = 'option';
     fb.className = 'option';
-    inputcity.value = '';
     setTimeout(() => {
         getback.style.display = '';
     }, 10)
